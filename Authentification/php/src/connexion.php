@@ -47,6 +47,23 @@ echo "Login / Mot de passe invalid!";
 echo " Merci vous etes connecté!";	
 }
 
+//Tautological Injection(2)	  
+	  
+if(mysqli_num_rows($requete))
+{
+	while ($row =mysqli_fech_assoc($requete)) {
+	$people[]=$row;
+	}
+$json = json_encode($people);
+echo $json;
+}else { echo 'Error!';}	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 
 
 
