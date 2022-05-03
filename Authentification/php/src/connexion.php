@@ -30,8 +30,8 @@
 
 $conn=mysqli_connect('db','MYSQL_USER','MYSQL_PASSWORD') or die("Database Error");
 mysqli_select_db($conn,'MYSQL_DATABASE');
-$login = $data['login'];
-$password = $data['password'];
+/*$login = $data['login'];
+$password = $data['password'];*/
 
 
 $login_user = $_POST['login'];
