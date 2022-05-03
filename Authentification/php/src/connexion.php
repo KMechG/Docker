@@ -30,30 +30,33 @@
 
 $conn=mysqli_connect('db','MYSQL_USER','MYSQL_PASSWORD') or die("Database Error");
 mysqli_select_db($conn,'MYSQL_DATABASE');
-
-//INSERT INTO `user` (`id`, `login`, `password`) VALUES (NULL, 'Karima_Isi_SSII', 'loyhtJ35Aq87Bm9jBxi');
-
-$requete = mysqli_query($conn, "select login, password from  `user`");
-
-$data=mysqli_fetch_array($requete);
-
-
-
 $login = $data['login'];
 $password = $data['password'];
 
 
 $login_user = $_POST['login'];
 $password_user = $_POST['password'];
+//INSERT INTO `user` (`id`, `login`, `password`) VALUES (NULL, 'Karima_Isi_SSII', 'loyhtJ35Aq87Bm9jBxi');
+
+$requete = mysqli_query($conn, "select login, password from  `user` where  login='".$login_user."' and pass= '".$password_user."' ");
+
+if(!$data=mysqli_fetch_array($requete)){
+echo "Login / Mot de passe invalid!";
+
+}else{
+echo " Merci vous etes connecté!";	
+}
 
 
-if( (isset($login_user) && $login_user ==$login ) && ( isset($password_user ) && $password_user ==$password) )
+
+
+/*if( (isset($login_user) && $login_user ==$login ) && ( isset($password_user ) && $password_user ==$password) )
 {
 	echo " Merci vous etes connecté!";
 }else{
 	echo "Login / Mot de passe invalid!";
 }
-
+*/
 
 ?>
    
