@@ -31,7 +31,7 @@
 $conn=mysqli_connect('db','MYSQL_USER','MYSQL_PASSWORD') or die("Database Error");
 mysqli_select_db($conn,'MYSQL_DATABASE');
 
-//INSERT INTO `auth` (`id`, `login`, `password`) VALUES (NULL, 'Karima_Isi_SSII', 'loyhtJ35Aq87Bm9jBxi');
+//INSERT INTO `user` (`id`, `login`, `password`) VALUES (NULL, 'Karima_Isi_SSII', 'loyhtJ35Aq87Bm9jBxi');
 
 $requete = mysqli_query($conn, "select login, password from  `user`");
 
