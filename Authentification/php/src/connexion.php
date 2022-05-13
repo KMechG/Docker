@@ -40,7 +40,7 @@ $password_user = $_POST['password'];
 
 $requete = mysqli_query($conn, "select login, password from  `user` where  login='".$login_user."' and pass= '".$password_user."' ");
 
-if(!$data=mysqli_fetch_array($requete)){
+if(!$data=mysqli_num_rows($requete)){
 echo "Login / Mot de passe invalid!";
 
 }else{
