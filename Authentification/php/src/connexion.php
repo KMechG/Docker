@@ -38,9 +38,9 @@ $login_user = $_POST['login'];
 $password_user = $_POST['password'];
 //INSERT INTO `user` (`id`, `login`, `password`) VALUES (NULL, 'Karima_Isi_SSII', 'loyhtJ35Aq87Bm9jBxi');
 
-$requete = mysqli_query($conn, "select login, password from  `user` where  login='".$login_user."' and pass= '".$password_user."' ");
+$requete = mysqli_query($conn, "select * from  `user` where  login='".$login_user."' and password= '".$password_user."' ");
 
-if(!$data=mysqli_num_rows($requete)){
+if(mysqli_num_rows($requete)>0){
 echo "Login / Mot de passe invalid!";
 
 }else{
@@ -51,7 +51,7 @@ echo " Merci vous etes connecté!";
 	  
 if(mysqli_num_rows($requete))
 {
-	while ($row =mysqli_fech_assoc($requete)) {
+	while ($row =mysqli_fetch_assoc($requete)) {
 	$people[]=$row;
 	}
 $json = json_encode($people);
